@@ -6,5 +6,5 @@ const connectTomongoDB = async(url)=>{
 }
 
 module.exports = {
-    connectTomongoDB
+    connectTomongoDB,
 }
