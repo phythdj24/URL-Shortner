@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
+const shortid = require('shortid')
 
 
 const urlSchema = new mongoose.Schema({
     shortID:{
         type: String,
         required: true,
+        default: shortid(),
         unique: true
     },
     redirectUrl: {
@@ -20,6 +22,6 @@ const urlSchema = new mongoose.Schema({
 { timestamps: true }
 )
 
-const URL = mongoose.model = ('url', urlSchema)
+const URL = mongoose.model('url', urlSchema)
 
 module.exports = URL;
