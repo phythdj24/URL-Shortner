@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Hello From Node server</h1>
-</body>
+  </head>
+  <body>
+    <h1>URL ShortNer</h1>
+    <% if (locals.id) { %>
+       <p>URL Generated: http://localhost:8001/url/<%= id %> </p>
+    <% } %>
+    <div>
+      <form method="post" action="/url" >
+     <label for="">
+        Enter Your Orignal URL
+     </label>
+     <input type="text" name="url" placeholder="Enter URL">
+    <button type="submit">Generate</button>
+      </form>
+    </div>
+  </body>
 </html>

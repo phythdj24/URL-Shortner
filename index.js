@@ -4,21 +4,31 @@ const app = express();
 const URL = require("./models/url");
 const { connectTomongoDB } = require("./connect");
 const urlRoute = require("./routes/url");
+const staticRoute  = require("./routes/staticRouter")
+
+
+
+
 const PORT = 8001;
 
 connectTomongoDB("mongodb://localhost:27017/short-url").then(() =>
   console.log("MongoDB Connected")
 );
 
-app.set("view egine","ejs");
+app.set("view engine","ejs");
 app.set('views', path.resolve('./views'))
 
-app.use(express.json());
+app.use('/',staticRoute)
 
-app.get("/test", async(req,res)=>{
-   const allUrls = await URL.find({});
-   return res.render("home")
-})
+app.use(express.json());
+app.use(express.urlencoded({extended:false}))
+
+// app.get("/test", async(req,res)=>{
+//    const allUrls = await URL.find({});
+//    return res.render("home",{
+//     urls: allUrls,
+//    })
+// })
 
 
 
