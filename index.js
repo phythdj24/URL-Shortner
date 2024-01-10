@@ -24,6 +24,7 @@ app.set('views', path.resolve('./views'))
 app.use('/',staticRoute)
 app.use("/user", userRoute);
 app.use("/url", urlRoute);
+app.use("/url", urlRoute);
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
