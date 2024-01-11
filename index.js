@@ -28,12 +28,12 @@ app.use("/url", urlRoute);
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 
-// app.get("/test", async(req,res)=>{
-//    const allUrls = await URL.find({});
-//    return res.render("home",{
-//     urls: allUrls,
-//    })
-// })
+app.get("/test", async(req,res)=>{
+   const allUrls = await URL.find({});
+   return res.render("home",{
+    urls: allUrls,
+   })
+})
 
 
 
